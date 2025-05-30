@@ -1,6 +1,11 @@
 # 🗂️ Gerenciador de Tarefas Web
 
-Um gerenciador de tarefas simples e intuitivo, desenvolvido com **Python e Flask**, com suporte a **tarefas e subtarefas**, **filtros por status**, e **interface web responsiva**.
+![Python Version](https://img.shields.io/badge/Python-3.8%2B-blue)
+![License](https://img.shields.io/badge/License-MIT-green)
+![Status](https://img.shields.io/badge/Status-Em%20desenvolvimento-orange)
+![Platform](https://img.shields.io/badge/Plataforma-Desktop%20%2F%20Web-blueviolet)
+
+Um gerenciador de tarefas simples e intuitivo, desenvolvido com Python e Flask, com suporte a tarefas e subtarefas, filtros por status, e interface web responsiva.
 
 ---
 
@@ -11,7 +16,7 @@ Um gerenciador de tarefas simples e intuitivo, desenvolvido com **Python e Flask
 - 📅 Filtro por status (pendente, em andamento, concluído)
 - 🔍 Busca por palavra-chave
 - 📊 Interface web com HTML/CSS e Flask
-- 💾 Persistência em arquivo `.json`
+- 💾 Persistência local em arquivo `.json`
 
 ---
 
@@ -19,7 +24,7 @@ Um gerenciador de tarefas simples e intuitivo, desenvolvido com **Python e Flask
 
 gerenciador_de_tarefas_web/
 │
-├── app/ # Lógica da aplicação Flask
+├── app/
 │ ├── static/ # Arquivos estáticos (CSS, imagens)
 │ ├── templates/ # Templates HTML
 │ ├── init.py # Inicialização do app Flask
@@ -27,18 +32,20 @@ gerenciador_de_tarefas_web/
 │ └── models.py # Funções de manipulação de dados
 │
 ├── run.py # Arquivo principal para iniciar o app
+├── requirements.txt # Dependências do projeto
+├── LICENSE # Licença MIT
 └── README.md # Este arquivo
 
 ---
 
 ## ▶️ Como Executar Localmente
 
-### Pré-requisitos
+### 🔧 Pré-requisitos
 
 - Python 3.8+
 - pip
 
-### Instalação
+### 📦 Instalação
 
 ```bash
 git clone https://github.com/SEU-USUARIO/gerenciador_de_tarefas_web.git
@@ -63,9 +70,9 @@ Em breve: adicionarei aqui capturas de tela da interface para facilitar a visual
 Este projeto está licenciado sob a MIT License.
 
 🤝 Contribuição
-Contribuições são bem-vindas! Sinta-se livre para abrir issues ou pull requests.
+Contribuições são bem-vindas! Sinta-se livre para abrir issues ou enviar pull requests.
 
 👨‍💻 Autor
-Lu-Fran • github.com/Lu-Fran
-
+Lu-Fran
+🔗 github.com/Lu-Fran
 ```
