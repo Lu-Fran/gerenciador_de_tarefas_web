@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+<!-- Título página Inicial html -->
+{% block title %}Tarefas / Projetos{% endblock %}
+
+<!-- Corpo mensagem -->
+<section class="descricao">
+  {% block content%}
+  <h2>Bem vindo ao Gerenciador de Tarefas/Projetos Web!</h2>
+  <a href="{{url_for('main.tarefas')}}"
+    ><button class="button_principal">Cadastro Tarefas</button></a
+  >
+  {% endblock %}
+</section>

@@ -1,0 +1,100 @@
+{% extends "base.html" %}
+
+<!-- Título página Tarefas html -->
+{% block title %}Tarefas{% endblock %}
+
+<!-- Corpo página -->
+{% block content %}
+
+<h2>Lista de Tarefas</h2>
+
+<!-- Mensagem Flash -->
+{% with messages = get_flashed_messages(with_categories=true) %}
+  {% if messages %}
+    <ul class=flashes>
+      {% for category, message in messages %}
+        <li class="{{category}}">
+          {{message}}
+        </li>
+      {% endfor %}
+    </ul>
+  {% endif %}
+{% endwith %}
+
+<!-- Formulário para adicionar nova tarefa -->
+<form action="{{url_for('main.adicionar_tarefa_rota')}}" method="POST">
+  <label for="descricao">Descrição Tarefa Principal</label>
+  <input type="text" id="descricao" name="descricao" required />
+
+  <label for="data_inicio">Data Início</label>
+  <input type="text" id="data_inicio" name="data_inicio" required />
+
+  <label for="data_termino">Data Término</label>
+  <input type="date" id="data_termino" name="data_termino" required />
+
+  <button class="form_button" type="submit">Adicionar Tarefa Principal</button>
+</form>
+
+<h2>Tarefas cadastradas</h2>
+<!-- Lista de tarefas -->
+<table class="table">
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>Descrição</th>
+      <th>Data Início</th>
+      <th>Data Término</th>
+      <th>Status</th>
+      <th>Ações Tarefa</th>
+      <th>Subtarefas</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    {% for tarefa in tarefas %}
+    <tr>
+      <td data-label="#">{{loop.index}}</td>
+      <td data-label="Descrição">{{tarefa.descricao}}</td>
+      <td data-label="Data Início">{{tarefa.data_inicio}}</td>
+      <td data-label="Data Término">{{tarefa.data_termino}}</td>
+      <td>
+        <form action="{{url_for('main.atualizar_status_tarefa_rota', id_tarefa=tarefa.id)}}" method="POST" style="display: inline;">
+            <select name="status" onchange="this.form.submit()">
+                <option value="A iniciar" {% if tarefa.status == 'A iniciar' %}selected{% endif %}>A iniciar</option>
+                <option value="Em andamento" {% if tarefa.status == 'Em andamento' %}selected{% endif %}>Em andamento</option>
+                <option value="Concluída" {% if tarefa.status == 'Concluída' %}selected{% endif %}>Concluída</option>
+            </select>
+        </form>
+      </td>
+      <td data-label="Ações Tarefa">
+        <a href="{{url_for('main.remover_tarefa_rota', id_tarefa=tarefa.id)}}" onclick="return confirm('Deseja remover esta tarefa principal e todas as suas subtarefas?')">Remover Tarefa</a>
+      </td>
+      <td data-label="Subtarefas">
+        <ul class="task_list">
+          {% for sub in tarefa.get('subtarefas', []) %}
+            <li>
+              <form action="{{url_for('main.atualizar_subtarefa_rota', id_tarefa_principal=tarefa.id, id_subtarefa=sub.id_sub)}}" method="POST" style="display: inline;">
+                <input type="checkbox" name="concluida" value="yes" {% if sub.concluida %}checked{% endif %} onchange="this.form.submit()">
+                <span {% if sub.concluida %} style="text-decoration: line-through;" {% endif %}> {{sub.descricao_sub}} </span>
+              </form>
+              <a href="{{url_for('main.remover_subtarefa_rota', id_tarefa_principal=tarefa.id, id_subtarefa=sub.id_sub)}}" onclick="return confirm('Remover esta subtarefa?')">(x)</a>
+            </li>
+          {% else %}
+            <li>Nenhuma subtarefa.</li>
+          {% endfor %}
+        </ul>
+        <form action="{{url_for('main.adicionar_subtarefa_rota', id_tarefa_principal=tarefa.id)}}" method="POST">
+          <input type="text" name="descricao_subtarefa" placeholder="Nova subtarefa" required size="15">
+          <button class="adicionar" type="submit" style="font-size: 1.6rem;">+</button>
+        </form>
+      </td>
+    </tr>
+    {% endfor %}
+  </tbody>
+
+</table>
+<a href="{{url_for('main.index')}}"
+          ><button class="btn">Voltar página Inicial</button></a>
+{% endblock %}
+
+

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+      {% block title %}Gerenciador de Tarefas / Projetos{% endblock %}
+    </title>
+    <link rel="stylesheet" href="{{url_for('static', filename='style.css')}}" />
+    <!-- Flatpickr CSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css"
+    />
+  </head>
+
+  <body>
+    <section class="descricao">
+      <h1>Gerenciador de Tarefas/Projetos</h1>
+
+      <main>{% block content %}{% endblock %}</main>
+
+      <footer class="rodape">
+        <div class="logo">
+          <img
+            src="{{ url_for('static', filename='img/Logo TI.png') }}"
+            alt="Logo"
+          />
+        </div>
+        <div class="assinatura">
+          <p>&copy; 2025 Luís França / LF Technology Information</p>
+        </div>
+      </footer>
+    </section>
+
+    <!-- Flatpickr JS -->
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <script>
+      flatpickr("#data_inicio", {
+        dateFormat: "d/m/Y",
+      });
+      flatpickr("#data_termino", {
+        dateFormat: "d/m/Y",
+      });
+    </script>
+  </body>
+</html>

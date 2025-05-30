@@ -1,0 +1,49 @@
+[
+    {
+        "id": "24510114-7e43-41d0-8263-07c30d6aef79",
+        "descricao": "Teste",
+        "data_inicio": "13/05/2025",
+        "data_termino": "14/05/2025",
+        "status": "A iniciar",
+        "subtarefas": [
+            {
+                "id_sub": "50dc39d0-35a1-4602-a09f-c150618b810f",
+                "descricao_sub": "SubtarefaTeste",
+                "concluida": false
+            }
+        ]
+    },
+    {
+        "id": "405d144b-ba0b-4a35-b491-10c60ebf83df",
+        "descricao": "Teste 2 ",
+        "data_inicio": "14/05/2025",
+        "data_termino": "15/05/2025",
+        "status": "A iniciar",
+        "subtarefas": [
+            {
+                "id_sub": "1ce1076f-54f6-4de8-a723-7bde0ead4176",
+                "descricao_sub": "Subtarefa teste2",
+                "concluida": false
+            }
+        ]
+    },
+    {
+        "id": "ff1dd6bf-7d7a-414a-9bde-ae3c06dcb43e",
+        "descricao": "Teste 3",
+        "data_inicio": "14/05/2025",
+        "data_termino": "15/05/2025",
+        "status": "A iniciar",
+        "subtarefas": [
+            {
+                "id_sub": "504f6945-6a9a-4a5e-8ee6-809092f9dd70",
+                "descricao_sub": "SubtarefaTeste3",
+                "concluida": false
+            },
+            {
+                "id_sub": "fdeaf425-f36f-44b3-bdd7-827bad862e07",
+                "descricao_sub": "SubtarefaTeste4",
+                "concluida": false
+            }
+        ]
+    }
+]
